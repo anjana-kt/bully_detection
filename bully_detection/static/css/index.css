@@ -1,0 +1,17 @@
+h1{
+    color: brown;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0% 2% 2% 0% ;
+    
+}
+form[type=text] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    height: 30px;
+    color: #000;
+    margin-left: 2%;
+}
