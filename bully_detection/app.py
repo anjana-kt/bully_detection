@@ -7,12 +7,15 @@ import math
 import os
 import joblib
 import keras
+import smtplib
 
 from keras.models import load_model
 loaded_model = load_model('the_final_model.h5')
 
 import joblib
 tok = joblib.load('tokenizer.pkl')
+
+app=Flask(__name__)
 
 def Predict(x):
     seed_text = str(x)
@@ -25,7 +28,21 @@ def Predict(x):
     a = float(a[12:18])
     return a
 
-app=Flask(__name__)
+
+def report(userid):
+    sender = 'tcr19cs017@gectcr.ac.in'
+    receivers = ['tcr19cs017@gectcr.ac.in']
+    password=""
+    message ="Cyber Team, \n "+str(userid)+"was caught for defaming others!!\n\n This is a test email !!!"
+    try:
+        smtpObj = smtplib.SMTP("smtp.gmail.com",int(587))
+        smtpObj.starttls()
+        smtpObj.login(sender,password)
+        smtpObj.sendmail(sender, receivers, message)         
+        print("Successfully sent email")
+    except Exception as e:
+        print("Error: unable to send email : "+str(e))
+
 
 @app.route('/',methods=['PUT',"GET","POST"])
 def home():
@@ -33,6 +50,7 @@ def home():
     ans = Predict(id)
     if ans > 0.5:
         pred = "Inappropriate Content"
+        report(id)
     else:
         pred = "Appropriate Content"    
 
