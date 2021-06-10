@@ -8,43 +8,22 @@ import os
 import joblib
 import keras
 
-
-#from keras import model_from_json
-#json_file = open('model.json','r') 
-#loaded_model_json = json_file.read() 
-#json_file.close() 
-
-# use Keras model_from_json to make a loaded model 
-#loaded_model = model_from_json(loaded_model_json) 
-
-# load weights into new model 
-#loaded_model.load_weights("model.h5") 
-#print("Loaded Model from disk") 
-
-# compile and evaluate loaded model 
-#loaded_model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
-
-
 from keras.models import load_model
-loaded_model = load_model('network.h5')
+loaded_model = load_model('the_final_model.h5')
 
-def Predict(seed_text):
-    print('About to predict')
-    #seed_text = Tokeniser.texts_to_sequences(seed_text)
-    #seed_text = tf.keras.preprocessing.sequence.pad_sequences(seed_text, 342)
+import joblib
+tok = joblib.load('tokenizer.pkl')
 
-    x = [seed_text]
-    Tokeniser = tf.keras.preprocessing.text.Tokenizer()
-    Tokeniser.fit_on_texts(x)
-    x = Tokeniser.texts_to_sequences(x)
-    x = tf.keras.preprocessing.sequence.pad_sequences(x, 342)
-
-    x = np.array(x)
-    #print(x)
-    
-    prediction = loaded_model(x)
-    print(str(prediction))
-    return str(prediction)
+def Predict(x):
+    seed_text = str(x)
+    seed_text = [seed_text]
+    print(seed_text)
+    seed_text = tok.texts_to_sequences(seed_text)
+    seed_text = tf.keras.preprocessing.sequence.pad_sequences(seed_text, 342)
+    prediction = loaded_model(seed_text)
+    a = str(prediction)
+    a = float(a[12:18])
+    return a
 
 app=Flask(__name__)
 
@@ -52,7 +31,12 @@ app=Flask(__name__)
 def home():
     id=request.form.get("userid")
     ans = Predict(id)
-    return render_template('index.html', ans=[id, ans])
+    if ans > 0.5:
+        pred = "Inappropriate Content"
+    else:
+        pred = "Appropriate Content"    
+
+    return render_template('index.html', ans=[id, pred])
 
 
 if __name__=="__main__":
