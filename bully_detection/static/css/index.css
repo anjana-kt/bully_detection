@@ -37,3 +37,25 @@ input[type=submit] {
     width: 100px;
     border-radius: 10px;
   }
+h2,h5,h4,h3{
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: vw;
+    font-size: 25px;
+    margin: 2% 2% 2% 0% ;
+    width: 320px;
+    text-align: center ;
+    border-style: dashed;
+    padding: 2% 2% 2% 0% ;
+
+}
+h5,h4,h3{
+    border-style: none;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    width: vw;
+}
+h3{
+    margin-top: 20px;
+}
