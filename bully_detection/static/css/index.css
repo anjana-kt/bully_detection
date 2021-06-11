@@ -1,17 +1,39 @@
-h1{
-    color: brown;
+body{
+    background-color: #76229E;
+    background-image: url("bg.png");
     margin: 0;
     padding: 0;
+    height: 1000px;    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+} 
+h1{
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 3%;
     font-weight: bold;
     font-size: 30px;
     margin: 0% 2% 2% 0% ;
-    
+    width: vw;
+    text-align: center ;
 }
-form[type=text] {
+.container input[type=text],
+.container input[type=password] {
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
     height: 30px;
     color: #000;
-    margin-left: 2%;
+    margin: 0 ;
+    
 }
+input[type=submit] {
+    background-color: #85006e;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 8px 8px;
+    margin: 0;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 10px;
+  }
