@@ -40,8 +40,10 @@ def report(userid):
         smtpObj.login(sender,password)
         smtpObj.sendmail(sender, receivers, message)         
         print("Successfully sent email")
+        return "\n\nReported as cyber crime!!"
     except Exception as e:
         print("Error: unable to send email : "+str(e))
+        return "\n\nError: unable to send email"
 
 
 @app.route('/',methods=['PUT',"GET","POST"])
@@ -50,11 +52,11 @@ def home():
     ans = Predict(id)
     if ans > 0.5:
         pred = "Inappropriate Content"
-        report(id)
+        r=report(id)
     else:
         pred = "Appropriate Content"    
 
-    return render_template('index.html', ans=[id, pred])
+    return render_template('index.html', ans=[id, pred,r])
 
 
 if __name__=="__main__":
