@@ -30,10 +30,10 @@ def Predict(x):
 
 
 def report(userid):
-    sender = 'tcr19cs017@gectcr.ac.in'
+    sender = 'ap226865@gmail.com'
     receivers = ['tcr19cs017@gectcr.ac.in']
-    password=""
-    message ="Cyber Team, \n "+str(userid)+"was caught for defaming others!!\n\n This is a test email !!!"
+    password="sherlockholmes"
+    message ="Hey, \n "+str(userid)+"you were caught for defaming others!!\n\n This is a test email !!!"
     try:
         smtpObj = smtplib.SMTP("smtp.gmail.com",int(587))
         smtpObj.starttls()
