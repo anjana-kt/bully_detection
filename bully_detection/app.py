@@ -50,6 +50,7 @@ def report(userid):
 def home():
     id=request.form.get("userid")
     ans = Predict(id)
+    r=""
     if ans > 0.5:
         pred = "Inappropriate Content"
         r=report(id)
