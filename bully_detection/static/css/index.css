@@ -37,28 +37,18 @@ input[type=submit] {
     width: 100px;
     border-radius: 10px;
   }
-h2,h5,h4,h3{
+
+.prediction {
     color: rgb(255, 255, 255);
-    margin: 0;
+    margin: 100px;
     padding: vw;
-    font-size: 25px;
+    font-size: 20px;
     margin: 2% 2% 2% 0% ;
     width: 320px;
     text-align: center ;
-    border-style: dashed;
-    padding: 2% 2% 2% 0% ;
+    border-style:dashed;
+}
 
-}
-h5,h4,h3{
-    border-style: none;
-    font-size: 20px;
-    padding: 0;
-    margin: 0;
-    width: vw;
-}
-h3{
-    margin-top: 20px;
-}
 .container {
   display: flex;
   flex-direction: column;
