@@ -12,7 +12,7 @@
     <h1>Cyber Bullying Detection</h1>
     <div class="container">
     <form action="/" method ="POST">
-        <input type="text" name="content" id="value"  placeholder="content" autocomplete="off">
+        <input name="content" type="text" name="content" id="value"  placeholder="content" autocomplete="off">
         <input type="submit" value="Search">
     </form>
 
@@ -22,14 +22,7 @@
         <p>{{ ans[0] }}<br>{{ ans[1] }}<br>{{ ans[2] }}<br></p>
         
     </div>
-    <input name = "reset" type="submit" value="Reset" onclick="reset">
-    <script>
-    function reset() {
-        var frm = document.getElementsByName('prediction');
-        frm.reset();  // Reset all form data
-        return false; // Prevent page refresh
-     }
-     </script>
+   
     </div>
 </body>
 </html>
